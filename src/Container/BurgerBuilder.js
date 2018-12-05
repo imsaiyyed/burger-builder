@@ -35,7 +35,7 @@ class BurgerBuilder extends Component {
           <NavbarBrand href='/'>Burger Builder</NavbarBrand>
           <Nav className="ml-auto" navbar>
               <NavItem>
-                <Button onClick={this.logout}>Logout</Button>
+                <Button color='danger' onClick={this.logout}>Logout</Button>
               </NavItem>
               </Nav>         
         </Navbar>

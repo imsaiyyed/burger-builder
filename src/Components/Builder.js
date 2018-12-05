@@ -4,7 +4,7 @@ import Salad from '../Components/Ingredients/Salad';
 import Bacon from '../Components/Ingredients/Bacon';
 import Meat from '../Components/Ingredients/Meat';
 import Cheese from '../Components/Ingredients/Cheese';
-import { Container, Row, Col ,Button,Label,Badge} from 'reactstrap';
+import { Container, Row, Col ,Button,Modal, ModalHeader, ModalBody, ModalFooter,Badge} from 'reactstrap';
 
 // import {withRouter} from 'react-router-dom';
 class BurgerBuilder extends Component {
@@ -66,6 +66,9 @@ class BurgerBuilder extends Component {
                     newIng.salad++;
                     this.props.changePrice(10);
                 }
+                else{
+                    this.props.updateWarning(true);
+                }
                 this.props.change(newIng);
             break;
             case 'meat':
@@ -74,6 +77,8 @@ class BurgerBuilder extends Component {
                     newIng.meat++;
                     this.props.changePrice(15);
 
+                }else{
+                    this.props.updateWarning(true);
                 }
                 this.props.change(newIng);
             break;
@@ -84,6 +89,8 @@ class BurgerBuilder extends Component {
                     newIng.cheese++;
                     this.props.changePrice(8);
 
+                }else{
+                    this.props.updateWarning(true);
                 }
                     this.props.change(newIng);
             break;
@@ -93,6 +100,8 @@ class BurgerBuilder extends Component {
                     newIng.bacon++;
                     this.props.changePrice(5);
 
+                }else{
+                    this.props.updateWarning(true);
                 }
                 this.props.change(newIng);
             break;
@@ -102,6 +111,10 @@ class BurgerBuilder extends Component {
     }
     checkout=()=>{
         this.props.history.push('/checkout');
+    }
+    toggle=()=>{
+        this.props.updateWarning(false);
+
     }
     render() {
         let salads=[];
@@ -121,12 +134,23 @@ class BurgerBuilder extends Component {
             cheese.push(<Cheese key={i}/>);
         }
     return (
-        <div>
+        <div className="builderDiv">
             <img src={ require('../assests/top-bun.png') } />
             <div className="ingedients">{salads}{bacons}{cheese}{meats}</div>
             <img src={ require('../assests/bottom-bun.png') } />
 
-        <div><h4>Totla Price:{this.props.totalPrice} Rs.</h4></div>
+
+        {this.props.warn? <Modal isOpen={this.props.warn}  toggle={this.toggle} >
+          <ModalHeader toggle={this.toggle}>Warning</ModalHeader>
+          <ModalBody>
+              You cannot add more than 3 layer of any ingredients..
+          </ModalBody>
+          <ModalFooter>
+            <Button color="warning" onClick={this.toggle}>Ok</Button>{' '}
+          </ModalFooter>
+        </Modal>:null}
+
+        <div style={{color:'#ffffff'}}><h4>Total Price:{this.props.totalPrice} Rs.</h4></div>
         
         
         <div className='Customization'>
@@ -183,7 +207,8 @@ class BurgerBuilder extends Component {
   const mapStateToProps=state=>{
     return {
         ingredients:state.burger.ingredients,
-        totalPrice:state.price.totalPrice
+        totalPrice:state.price.totalPrice,
+        warn:state.burger.warning
     };
   }
 const mapDispatchToProps=dispatch=>{
@@ -195,6 +220,10 @@ const mapDispatchToProps=dispatch=>{
       changePrice:(value)=>dispatch({
         type:'UPDATEPRICE',
         price:value
+      }),
+      updateWarning:(value)=>dispatch({
+        type:'UPDATEWARNING',
+        val:value
       })
   }
 }

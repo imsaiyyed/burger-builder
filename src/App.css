@@ -9,22 +9,27 @@
 .saladDiv{
   display: flex;
   width: 28%;
-  height: 20px;
+  height: 25px;
   min-width: 10px;
   background-color:#128308;
   margin-top: 2px;
   border: 2px dotted #ff7b00;
-
+  color: #ffffff;
 }
 .baconDiv{
   display: flex;
   width: 28%;
-  height: 20px;
+  height: 25px;
   min-width: 10px;
   background-color:#6b3a02;
   margin-top: 2px;
   border: 2px dotted #ff7b00;
+  color: #ffffff;
+  text-align:center;
 
+}
+.builderDiv{
+  background-image: url('./assests/background.png')
 }
 .LogInForm{
   width: 40%;
@@ -40,23 +45,33 @@
 .cheeseDiv{
   display: flex;
   width: 28%;
-  height: 20px;
+  height: 25px;
   min-width: 10px;
   background-color:#cfc313;
   margin-top: 2px;
   border: 2px dotted #ff7b00;
+  color: #ffffff;
+  text-align:center;
 
 }
 .meatDiv{
   display: flex;
   width: 28%;
-  height: 20px;
+  height: 25px;
   min-width: 10px;
   background-color:#b63f07;
   margin-top: 2px;
   border: 2px dotted #ff7b00;
+  color: #ffffff;
+  
 }
-
+p{
+  width: 100%;
+  text-align: center;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold;
+  color: #000000
+}
 .ingedients{
   width: 100%;
   display:#d80606;
@@ -69,7 +84,7 @@
   margin-left: 35%;
   text-align: center;
   padding: 15px;
-  
+  background-image:linear-gradient(to bottom right,#295a24, #592b6b)
 }
 .addBtn{
   margin-left: 55%
@@ -88,7 +103,14 @@
 }
 .checkoutDiv{
   width: 50%;
-  margin-left: 20%;
+  margin-left: 25%;
+
+}
+.checkOuter{
+  background-image: url('./assests/background.png');
+  width: 100%;
+  height: 570px;
+  padding-top: 10%;
 }
 h3{
   display: inline;

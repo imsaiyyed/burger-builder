@@ -3,7 +3,8 @@ import React, { Component } from 'react';
 const Meat=(props)=>{
     return(
         <div className="meatDiv">  
-        
+                <p>Meat</p>
+
         </div>
     );
 }

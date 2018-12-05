@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Inputs from '../Components/Input/Inputs';
-import { Button} from 'reactstrap';
+import { Button,Alert} from 'reactstrap';
 
 class Login extends Component {
 
@@ -23,7 +23,8 @@ class Login extends Component {
             },
             value:''
           }
-        }
+        },
+        isInvalid:false
        
         }
     componentDidMount(){
@@ -43,6 +44,11 @@ class Login extends Component {
         if(this.state.logInForm.email.value==='ismail' && this.state.logInForm.password.value==='1234'){
             localStorage.setItem('user',this.state.logInForm.email.value);
             this.props.history.push('/burgerbuilder');
+        }
+        else{
+          this.setState({
+            isInvalid:true
+          });
         }
     }
   render() {
@@ -73,6 +79,9 @@ class Login extends Component {
         <h3>Log In</h3>
         {source}
         <Button color='primary' onClick={this.logIn}>Log In</Button>
+        {this.state.isInvalid?<Alert color="danger">
+        Please provide valid username and password
+      </Alert>:null}
       </div>
     );
   }

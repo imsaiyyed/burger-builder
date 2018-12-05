@@ -32,21 +32,22 @@ class BurgerBuilder extends Component {
             cheesePrice+=8;
         }
     return (
+        <div className='checkOuter'>
         <div className='checkoutDiv'>
        
 
     <Row>
       <Col >
-        <Card body>
-          <CardTitle>Order details</CardTitle>
-          <CardText>Cheese: {cheesePrice}</CardText>
-          <CardText>Bacon: {baconPrice}</CardText>
-          <CardText>Meat: {meatPrice}</CardText>
-          <CardText>Salad: {saladPrice}</CardText>
+        <Card style={{color:'#11646e'}} body>
+          <CardTitle >Order details</CardTitle>
+          {this.props.ingredients.cheese>0?<CardText>Cheese (8*{this.props.ingredients.cheese}): {cheesePrice}</CardText>:null}
+          {this.props.ingredients.bacon>0?<CardText>Bacon (5*{this.props.ingredients.bacon}): {baconPrice}</CardText>:null}
+          {this.props.ingredients.meat>0?<CardText>Meat (15*{this.props.ingredients.meat}): {meatPrice}</CardText>:null}
+          {this.props.ingredients.salad>0?<CardText>Salad (10*{this.props.ingredients.salad}): {saladPrice}</CardText>:null}
           <CardText>Base Price: {30}</CardText>
-          <CardText>Total Price: {this.props.totalPrice}</CardText>
+          <CardText style={{fontWeight:'bold',color:'#990500'}}>Total Price: {this.props.totalPrice}</CardText>
 
-          <Button onClick={this.props.place}>Confirm order</Button>
+          <Button color='success' onClick={this.props.place}>Confirm order</Button>
         </Card>
       </Col>
       
@@ -56,7 +57,7 @@ class BurgerBuilder extends Component {
         Your order is placed successfully
       </Alert>:null}
         </div>
-
+</div>
     );
   } 
 }

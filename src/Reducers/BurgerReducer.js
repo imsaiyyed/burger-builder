@@ -5,7 +5,7 @@ const initialState={
         cheese:0,
         meat:0
     },
-    totalPrice:0
+    warning:false
     
 }
 
@@ -16,6 +16,9 @@ const reducer=(state=initialState,action)=>{
         case 'UPDATE':
             console.log(state);
         return {...state,ingredients:{...action.ingredients}}
+        case 'UPDATEWARNING':
+            console.log(state);
+        return {...state,warning:action.val}
         default:
             return  state;
     }
