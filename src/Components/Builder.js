@@ -4,7 +4,7 @@ import Salad from '../Components/Ingredients/Salad';
 import Bacon from '../Components/Ingredients/Bacon';
 import Meat from '../Components/Ingredients/Meat';
 import Cheese from '../Components/Ingredients/Cheese';
-import { Container, Row, Col ,Button,Modal, ModalHeader, ModalBody, ModalFooter,Badge} from 'reactstrap';
+import {  Row, Col ,Button,Modal, ModalHeader, ModalBody, ModalFooter,Badge} from 'reactstrap';
 
 // import {withRouter} from 'react-router-dom';
 class BurgerBuilder extends Component {
@@ -135,9 +135,9 @@ class BurgerBuilder extends Component {
         }
     return (
         <div className="builderDiv">
-            <img src={ require('../assests/top-bun.png') } />
+            <img alt='' src={ require('../assests/top-bun.png') } />
             <div className="ingedients">{salads}{bacons}{cheese}{meats}</div>
-            <img src={ require('../assests/bottom-bun.png') } />
+            <img alt='' src={ require('../assests/bottom-bun.png') } />
 
 
         {this.props.warn? <Modal isOpen={this.props.warn}  toggle={this.toggle} >

@@ -2,17 +2,10 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import Builder from '../Components/Builder';
 import {
-    Collapse,
     Navbar,
-    NavbarToggler,
     NavbarBrand,
     Nav,Button,
-    NavItem,
-    NavLink,
-    UncontrolledDropdown,
-    DropdownToggle,
-    DropdownMenu,
-    DropdownItem } from 'reactstrap';
+    NavItem } from 'reactstrap';
 class BurgerBuilder extends Component {
 
     componentWillMount(){
